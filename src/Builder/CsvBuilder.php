@@ -11,6 +11,7 @@ class CsvBuilder
 {
     private const HEADERS = ['Nazwa produktu', 'URL', 'URL zdjęcia', 'Cena', 'Liczba ocen', 'Liczba gwiazdek'];
 
+    /** @var array<Product> */
     private array $products = [];
 
     private Spreadsheet $spreadsheet;
@@ -42,10 +43,8 @@ class CsvBuilder
         return $spreadsheet;
     }
 
-    private function addProducts(Spreadsheet $spreadsheet): Spreadsheet
+    private function addProducts(Spreadsheet $spreadsheet, int $row = 2): Spreadsheet
     {
-        $row = 2;
-
         foreach ($this->products as $product) {
             $spreadsheet->getActiveSheet()
                 ->setCellValue('A' . $row, $product->name())

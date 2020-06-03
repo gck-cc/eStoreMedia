@@ -8,6 +8,7 @@ use Core\Builder\CsvBuilder;
 use Core\HttpClient\HttpClient;
 use Core\Page\Page;
 use Core\Parser\Parser;
+use Core\ValueObject\Product;
 use PhpOffice\PhpSpreadsheet\Writer\Csv;
 
 class Task1
@@ -34,6 +35,9 @@ class Task1
         return $this->httpClient->get($this->page->getUrl());
     }
 
+    /**
+     * @param array<Product> $products
+     */
     public function exportToCsv(string $path, array $products): void
     {
         $spreadsheet = new CsvBuilder(...$products);

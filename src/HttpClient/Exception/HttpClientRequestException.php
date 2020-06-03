@@ -9,7 +9,7 @@ use Throwable;
 
 final class HttpClientRequestException extends Exception
 {
-    public static function wrap(Throwable $e): self
+    public static function wrap(string $e): self
     {
         return new self($e);
     }

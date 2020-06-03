@@ -12,6 +12,9 @@ class DefaultParser implements Parser
     private const RATING_STAR = '★';
     private const MONEY_FORMAT = '$%D,%D';
 
+    /**
+     * @return array<Product>
+     */
     public function getProducts(string $html): array
     {
         $crawler = new Crawler($html);
@@ -37,6 +40,9 @@ class DefaultParser implements Parser
         return array_filter($products);
     }
 
+    /**
+     * @return array<int>
+     */
     public function getPages(string $html): array
     {
         $crawler = new Crawler($html);

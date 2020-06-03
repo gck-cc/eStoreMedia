@@ -23,7 +23,7 @@ final class GuzzleHttpClient implements HttpClient
         try {
             $resource = $this->httpClient->request(HttpClient::GET, $url);
         } catch (GuzzleException $e) {
-            throw HttpClientRequestException::wrap($e);
+            throw HttpClientRequestException::wrap((string) $e);
         }
 
         $html = $resource->getBody()->__toString();
